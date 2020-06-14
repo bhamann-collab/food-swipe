@@ -3,7 +3,11 @@ const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
 const path = require('path')
+const https = require('https')
 const { parse } = require('path')
+require('dotenv').config();
+
+console.log(process.env)
 
 const normalizePort = port => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT || 5000)
@@ -38,3 +42,29 @@ server.listen(PORT, err => {
     if (err) throw err
     console.log(`server started ${PORT}`);
 });
+
+const api_key = process.env.API_KEY
+
+function getRestaurantsData() {
+    https.get(api_key, (resp) => {
+  let data = '';
+
+  // A chunk of data has been recieved.
+  resp.on('data', (chunk) => {
+    data += chunk;
+  });
+
+  // The whole response has been received. Print out the result.
+  resp.on('end', () => {
+        console.log(JSON.parse(data).results.length)
+        for(var i in JSON.parse(data).results) {
+            console.log(JSON.parse(data).results[i].name);
+        }
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});    
+}
+
+getRestaurantsData();
