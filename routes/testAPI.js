@@ -3,7 +3,7 @@ const router = express.Router();
 const https = require('https')
 
 
-const api_key = process.env.API_KEY
+const api_key = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?rankby=distance&location=-34.906101%2C138.593903&key=${process.env.API_KEY}&type=restaurant`
 
 function getRestaurantsData() {
     https.get(api_key, (resp) => {

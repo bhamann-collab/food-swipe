@@ -38,7 +38,7 @@ app.use(cors())
 
 
 //Using routes
-app.use(require("./routes/testAPI"))
+//app.use(require("./routes/testAPI"))
 app.use(require("./routes/geolocation"))
 
 if (dev) {
