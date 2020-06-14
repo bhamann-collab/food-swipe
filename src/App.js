@@ -5,8 +5,29 @@ import APITest from './component/APITest'
 import Timer from './component/Timer'
 import SwiperCard from './component/SwiperCard'
 import photoDb from './db/photoDB'
+import axios from 'axios'
 
-console.log(photoDb)
+//Geolocation
+if ('geolocation' in navigator) {
+    console.log('geolocation available');
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position.coords.latitude)
+      console.log(position.coords.longitude)
+      const coord = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+      }
+      axios
+        .post('http://localhost:5000/api/geolocation', coord)
+        .then(() => console.log('Book Created'))
+        .catch(err => {
+            console.log(err)
+        })
+    })
+  } else {
+    console.log('geolocation not avaliable')
+  }
+  //Geolocation
 
 function App() {
     return (

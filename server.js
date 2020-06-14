@@ -3,6 +3,7 @@ const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
 const path = require('path')
+const cors = require("cors")
 const { parse } = require('path')
 require('dotenv').config();
 
@@ -32,10 +33,13 @@ if (!dev) {
 //Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors())
 
 
-//Using the test route
+
+//Using routes
 app.use(require("./routes/testAPI"))
+app.use(require("./routes/geolocation"))
 
 if (dev) {
     app.use(morgan('dev'))
