@@ -1,0 +1,22 @@
+@import "./fonts.scss";
+
+@import "./SwiperCard";
+@import "./Timer";
+@import "./Button";
+@import "./ImgContainer.scss";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-y: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-image: linear-gradient(to top, #f8a5c2 ,#c0392b);
+  text-align: center;
+}

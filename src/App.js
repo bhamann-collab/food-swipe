@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/App.scss';
+//test line below
+import APITest from './component/APITest'
+import Timer from './component/Timer'
+import SwiperCard from './component/SwiperCard'
+import photoDb from './db/photoDB'
+
+console.log(photoDb)
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Timer />
+            <div className="swipeArea">
+				{photoDb.map((card) =>
+					<SwiperCard key={card.name} cardName={card.name}/>
+				)}
+            </div>
+        </div>
+    );
 }
 
 export default App;
