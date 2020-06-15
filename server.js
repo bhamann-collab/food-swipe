@@ -2,6 +2,7 @@ const {createServer} = require('http')
 const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 const path = require('path')
 const cors = require("cors")
 const { parse } = require('path')
@@ -12,6 +13,13 @@ const PORT = normalizePort(process.env.PORT || 5000)
 
 const app = express()
 const dev = app.get('env') !== 'production'
+
+//Mongoose
+//-----------------------------------
+mongoose.connect('mongodb://localhost:27017/food', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.Promise = global.Promise;
+//-----------------------------------
+
 
 //If we are not in dev (if we are in production)
 if (!dev) {
@@ -38,7 +46,6 @@ app.use(cors())
 
 
 //Using routes
-//app.use(require("./routes/testAPI"))
 app.use(require("./routes/geolocation"))
 
 if (dev) {
