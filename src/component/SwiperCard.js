@@ -34,7 +34,7 @@ const SwiperCard = props => {
 
 			{/* Restaurant Information */}
 			<div className="container">
-				<p>Ruby Red Flamingo</p>
+				<p>{propValue.cardName}</p>
 				<p>$$</p>
 				<p>200m away</p>
 			</div>
