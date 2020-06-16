@@ -19,7 +19,10 @@ if ('geolocation' in navigator) {
       }
       axios
         .post('http://localhost:5000/api/geolocation', coord)
-        .then(() => console.log('Book Created'))
+        .then(
+          (mongoId) => {
+            getRestaurants(mongoId.data)
+          })
         .catch(err => {
             console.log(err)
         })
@@ -28,6 +31,12 @@ if ('geolocation' in navigator) {
     console.log('geolocation not avaliable')
   }
   //Geolocation
+
+  function getRestaurants(mongoId) {
+    axios
+    .get(`http://localhost:5000/api/restaurantData/${mongoId}`)
+    .then((data) => console.log(data))
+  }
 
 function App() {
     return (
