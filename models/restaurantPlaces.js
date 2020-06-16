@@ -8,104 +8,284 @@ const Schema = mongoose.Schema;
 
 const RestaurantPlacesSchema = new Schema({
     '0': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '1': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '2': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '3': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '4': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '5': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '6': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '7': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '8': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '9': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '10': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '11': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '12': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '13': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '14': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '15': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '16': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '17': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '18': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     },
     '19': {
-        type: String,
-        unique: true,
-        required: [true, 'Name field is required']
+        name: {
+            type: String,
+            default: 'no name'
+        },
+        location: {
+            type: Schema.Types.Mixed,
+            default: 'no location'
+        },
+        photo: {
+            type: Schema.Types.Mixed,
+            default: 'no photo'
+        }
     }
 })
 
