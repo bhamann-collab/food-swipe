@@ -5,6 +5,7 @@ import SwiperCard from './component/SwiperCard'
 import photoDb from './db/photoDB'
 import axios from 'axios'
 
+const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
 
 function App() {
   	const [names, setNames] = useState([])
@@ -27,7 +28,7 @@ function App() {
               		longitude: position.coords.longitude
           		}
           		axios
-				.post('http://localhost:5000/api/geolocation', coord)
+				.post(`${API_ENDPOINT}/api/geolocation`, coord)
             	.then(
               	(mongoId) => {
                 	getRestaurants(mongoId.data)
@@ -43,7 +44,7 @@ function App() {
     }
 	function getRestaurants(mongoId) {
         axios
-        .get(`http://localhost:5000/api/restaurantData/${mongoId}`)
+        .get(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
         .then(({data}) => {
           	setNames(data)
         })

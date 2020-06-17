@@ -16,7 +16,7 @@ const dev = app.get('env') !== 'production'
 
 //Mongoose
 //-----------------------------------
-mongoose.connect('mongodb://localhost:27017/food', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost:27017/food', {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 //-----------------------------------
 
