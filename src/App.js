@@ -6,6 +6,7 @@ import photoDb from './db/photoDB'
 import axios from 'axios'
 
 const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
+console.log(API_ENDPOINT)
 
 function App() {
   	const [names, setNames] = useState([])
