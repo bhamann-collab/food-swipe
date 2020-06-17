@@ -28,7 +28,7 @@ function App() {
               		longitude: position.coords.longitude
           		}
           		axios
-				.post(`${API_ENDPOINT}/api/geolocation`, coord)
+				.post(`https://boiling-headland-74814.herokuapp.com/api/geolocation`, coord)
             	.then(
               	(mongoId) => {
                 	getRestaurants(mongoId.data)
@@ -44,7 +44,7 @@ function App() {
     }
 	function getRestaurants(mongoId) {
         axios
-        .get(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
+        .get(`https://boiling-headland-74814.herokuapp.com/api/restaurantData/${mongoId}`)
         .then(({data}) => {
           	setNames(data)
         })
