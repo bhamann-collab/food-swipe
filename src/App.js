@@ -32,7 +32,6 @@ function App() {
 				.post(`${API_ENDPOINT}/api/geolocation`, coord)
             	.then(
               	(mongoId) => {
-					  console.log(`Mongo ID is this:${mongoId.data}`)
                 	getRestaurants(mongoId.data)
               	})
             	.catch(err => {
@@ -45,6 +44,7 @@ function App() {
     	//Geolocation ends Here -------------------
     }
 	function getRestaurants(mongoId) {
+		console.log(`Mongo ID is this:${mongoId}`)
         axios
         .get(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
         .then(({data}) => {

@@ -13,8 +13,6 @@ router.post('/api/geolocation', async (req, res) => {
 
     var restaurants = new Restaurants(restaurantNames)
     let sessionId = await restaurants.save().then((item) => {
-        console.log("FROM THE MONGO DATABASE")
-        console.log(item)
         return item.id  
     })
     res.send(JSON.stringify(sessionId))
