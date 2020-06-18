@@ -33,4 +33,16 @@ router.get('/api/restaurantData/:id', (req, res) => {
     //res.send(JSON.stringify("hello"))
 })
 
+//Heroku testing
+router.get('/api/test', (req, res) => {
+    console.log("The test works")
+    res.end()
+})
+
+router.get('/api/test/id/:id', (req, res) => {
+    console.log(`id is: ${req.params.id}`)
+    res.end()
+})
+//Heroku testing
+
 module.exports = router;
