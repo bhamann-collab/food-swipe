@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Timer from './Timer'
 import SwiperCard from './SwiperCard'
+import LoadingSpinnerComponent from "./LoadingSpinnerComponent"
+import { trackPromise } from 'react-promise-tracker'
 import axios from 'axios'
 
 const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
@@ -25,16 +27,20 @@ function PageSwipe() {
           		const coord = {
               		latitude: position.coords.latitude,
               		longitude: position.coords.longitude
-          		}
-          		axios
-				.post(`${API_ENDPOINT}/api/geolocation`, coord)
-            	.then(
-              	(mongoId) => {
-                	getRestaurants(mongoId.data)
-              	})
-            	.catch(err => {
-                	console.log(err)
-            	})
+				  }
+				  //Tracking promise spinner
+				  trackPromise(
+					axios
+					.post(`${API_ENDPOINT}/api/geolocation`, coord)
+					.then(
+					  (mongoId) => {
+						getRestaurants(mongoId.data)
+					  })
+					.catch(err => {
+						console.log(err)
+					})
+				  )
+
         	})
       	} else {
         	console.log('geolocation not avaliable')
@@ -43,22 +49,27 @@ function PageSwipe() {
     }
 	function getRestaurants(mongoId) {
 		console.log(`Mongo ID is this:${mongoId}`)
-        axios
-        .post(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
-        .then(({data}) => {
-			//Cutting out some objects
-			let sliceData = (({ __v, _id, ...o}) => o)(data)
-          	setNames(sliceData)
-		})
-		.catch(err => {
-			console.log(err)
-		})
+		//Tracking promise spinner
+		trackPromise(
+			axios
+			.post(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
+			.then(({data}) => {
+				//Cutting out some objects
+				let sliceData = (({ __v, _id, ...o}) => o)(data)
+				  setNames(sliceData)
+			})
+			.catch(err => {
+				console.log(err)
+			})
+		)
+
     }
 
     console.log(names)
     return (
         <div className="App">
             <Timer />
+			<LoadingSpinnerComponent />
             <div className="swipeArea">
 				{Object.keys(names).map((keyName,i) =>
 					<SwiperCard key={i} cardName={names[keyName].name}/>
