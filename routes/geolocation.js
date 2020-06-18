@@ -18,7 +18,8 @@ router.post('/api/geolocation', async (req, res) => {
     res.send(JSON.stringify(sessionId))
 })
 
-router.get('/api/restaurantData/:id', (req, res) => {
+//A get request does not seem to work in Heroku production, so we will try a post request
+router.post('/api/restaurantData/:id', (req, res) => {
     console.log("GOING TO THE MONGO DATABASE")
     Restaurants.findById(req.params.id, (err, result) => {
         if (err) {
@@ -27,7 +28,7 @@ router.get('/api/restaurantData/:id', (req, res) => {
             console.log("YAAAAAAAAA")
             console.log(result)
             console.log("YAAAAAAAAA")
-            res.json(result);
+            res.send(JSON.stringify(result));
         }
     })
     //res.send(JSON.stringify("hello"))

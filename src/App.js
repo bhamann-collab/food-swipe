@@ -46,7 +46,7 @@ function App() {
 	function getRestaurants(mongoId) {
 		console.log(`Mongo ID is this:${mongoId}`)
         axios
-        .get(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
+        .post(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
         .then(({data}) => {
 			console.log(data)
           	setNames(data)
