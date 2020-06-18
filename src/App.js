@@ -48,6 +48,7 @@ function App() {
         axios
         .get(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
         .then(({data}) => {
+			console.log(data)
           	setNames(data)
         })
     }
