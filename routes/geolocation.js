@@ -7,10 +7,11 @@ const Restaurants = require('../models/restaurantPlaces')
 //Client sends their geolocation to the server and the server populates the database with restaurant information ready for a session
 router.post('/api/geolocation', async (req, res) => {
     console.log(req.body)
-    console.log("WE ARE GOING TO GET SOME RESTAURANT DATA")
     const api_key = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?rankby=distance&location=${req.body.latitude}%2C${req.body.longitude}&key=${process.env.API_KEY}&type=restaurant`
     //Google API call to get restaurant data
     let restaurantNames = await getRestaurantsData(api_key)
+    console.log("HERE ARE THE RESTAURANT NAMES")
+    console.log(restaurantNames)
 
     var restaurants = new Restaurants(restaurantNames)
     let sessionId = await restaurants.save().then((item) => item.id)
