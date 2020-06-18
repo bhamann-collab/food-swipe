@@ -30,7 +30,7 @@ if (!dev) {
     app.use(morgan('common'))
 
     //We are telling where our static files belong (./build)
-    app.use(express.static(path.resolve(__dirname, 'build')))
+    app.use('/', express.static("build"))
 
     //On every request that comes in, because we don't have a built in API at the moment, we use a boiler plate to send ./public/index.html
     app.get('*', (req, res) => {
