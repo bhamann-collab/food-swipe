@@ -17,10 +17,14 @@ router.post('/api/geolocation', async (req, res) => {
 })
 
 router.get('/api/restaurantData/:id', (req, res) => {
+    console.log("GOING TO THE MONGO DATABASE")
     Restaurants.findById(req.params.id, (err, result) => {
         if (err) {
             res.send(err);
         } else {
+            console.log("YAAAAAAAAA")
+            console.log(result)
+            console.log("YAAAAAAAAA")
             res.json(result);
         }
     })
