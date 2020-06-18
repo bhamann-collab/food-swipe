@@ -43,6 +43,26 @@ router.get('/api/test/id/:id', (req, res) => {
     console.log(`id is: ${req.params.id}`)
     res.end()
 })
+
+router.post('/api/test', (req, res) => {
+    console.log("The test works")
+    res.end()
+})
+
+router.post('/api/test/id/:id', (req, res) => {
+    console.log(`id is: ${req.params.id}`)
+    res.end()
+})
+
+router.put('/api/test', (req, res) => {
+    console.log("The test works")
+    res.end()
+})
+
+router.put('/api/test/id/:id', (req, res) => {
+    console.log(`id is: ${req.params.id}`)
+    res.end()
+})
 //Heroku testing
 
 module.exports = router;
