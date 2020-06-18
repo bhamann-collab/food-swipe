@@ -1,0 +1,20 @@
+.sweet-loading {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: inherit;
+    height: inherit;
+    background-image: linear-gradient(to top, #f8a5c2 ,#c0392b);
+    z-index:2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

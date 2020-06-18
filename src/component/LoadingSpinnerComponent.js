@@ -7,7 +7,6 @@ const LoadingSpinnerComponent = () => {
     const [loading] = useState(true)
 
     let { promiseInProgress } = usePromiseTracker({});
-    //let promiseInProgress = true;
 
     const override = css`
     display: block;
