@@ -25,13 +25,10 @@ router.post('/api/restaurantData/:id', (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            console.log("YAAAAAAAAA")
-            console.log(result)
-            console.log("YAAAAAAAAA")
+
             res.send(JSON.stringify(result));
         }
     })
-    //res.send(JSON.stringify("hello"))
 })
 
 //Heroku testing

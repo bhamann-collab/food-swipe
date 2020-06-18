@@ -48,8 +48,9 @@ function App() {
         axios
         .post(`${API_ENDPOINT}/api/restaurantData/${mongoId}`)
         .then(({data}) => {
-			console.log(data)
-          	setNames(data)
+			//Cutting out some objects
+			let sliceData = (({ __v, _id, ...o}) => o)(data)
+          	setNames(sliceData)
 		})
 		.catch(err => {
 			console.log(err)
