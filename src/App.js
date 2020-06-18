@@ -32,6 +32,7 @@ function App() {
 				.post(`${API_ENDPOINT}/api/geolocation`, coord)
             	.then(
               	(mongoId) => {
+					  console.log(`Mongo ID is this:${mongoId.data}`)
                 	getRestaurants(mongoId.data)
               	})
             	.catch(err => {
