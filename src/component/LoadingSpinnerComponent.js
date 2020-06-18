@@ -1,15 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { usePromiseTracker } from 'react-promise-tracker'
+import { css } from '@emotion/core'
+import SyncLoader from 'react-spinners/SyncLoader'
 
 const LoadingSpinnerComponent = () => {
-    let { promiseInProgress } = usePromiseTracker();
+    const [loading] = useState(true)
 
-    console.log(promiseInProgress)
+    let { promiseInProgress } = usePromiseTracker({});
+    //let promiseInProgress = true;
+
+    const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: white;
+    `;
+
     return (
-        <div>
+        <div className="sweet-loading">
             {
 +               (promiseInProgress === true) ?
-                <h3>Hey I'm a spinner loader wannabe !!!</h3>
+                <div className="spinner">
+                    <h1>Loading Restaurants</h1>
+                    <SyncLoader 
+                    css={override}
+                    size={100}
+                    color={"white"}
+                    loading={loading}
+                    />
+                </div>
                 :
                 null
             }
