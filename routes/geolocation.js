@@ -3,6 +3,7 @@ const router = express.Router();
 const Restaurants = require('../models/restaurantPlaces')
 
  getRestaurantsData = require('./route_functions/getRestaurantsData')
+ shuffleObjects = require('./route_functions/shuffleObjects')
 
 //Client sends their geolocation to the server and the server populates the database with restaurant information ready for a session
 router.post('/api/geolocation', async (req, res) => {
@@ -11,7 +12,11 @@ router.post('/api/geolocation', async (req, res) => {
     //Google API call to get restaurant data
     let restaurantNames = await getRestaurantsData(api_key)
 
-    var restaurants = new Restaurants(restaurantNames)
+    //Randomizing the restaurants
+    let shuffle = shuffleObjects(restaurantNames)
+
+    //Placing restaurant data for user as a document in the MongoDB collection
+    var restaurants = new Restaurants(shuffle)
     let sessionId = await restaurants.save().then((item) => {
         return item.id  
     })
@@ -20,7 +25,6 @@ router.post('/api/geolocation', async (req, res) => {
 
 //A get request does not seem to work in Heroku production, so we will try a post request
 router.post('/api/restaurantData/:id', (req, res) => {
-    console.log("GOING TO THE MONGO DATABASE")
     Restaurants.findById(req.params.id, (err, result) => {
         if (err) {
             res.send(err);
