@@ -50,7 +50,10 @@ function App() {
         .then(({data}) => {
 			console.log(data)
           	setNames(data)
-        })
+		})
+		.catch(err => {
+			console.log(err)
+		})
     }
 
     console.log(names)
