@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PrivacyPolicy from './PrivacyPolicy'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,6 +16,16 @@ const iconList = Object
 //Needed to import font awesome
 
 const PageTitle = () => {
+    const[checked, setChecked] = useState(false)
+
+    const handleClick = () => {
+        setChecked(!checked)
+    }  
+
+    const boxUnticked = () => {
+        console.log("box is unticked")
+    }
+
     return (
         <div className="titlePage">
             <h1>Food Tinder</h1>
@@ -25,7 +35,10 @@ const PageTitle = () => {
             style={{color: "white"}}
             />
             <div className="titleButtons">
-                <Link to="/pageSwipe">
+                <Link 
+                to={checked ? "/pageSwipe" : "/"}
+                onClick={!checked ? boxUnticked : null}
+                >
                     <FontAwesomeIcon
                     className="titleFontAwesome" 
                     icon={"user"} 
@@ -33,7 +46,10 @@ const PageTitle = () => {
                     />
                     <p>SOLO SWIPE</p>
                 </Link>
-                <Link to="/toBeReplaced">
+                <Link 
+                to={checked ? "/toBeReplaced" : "/"}
+                onClick={!checked ? boxUnticked : null}
+                >
                     <FontAwesomeIcon 
                     className="titleFontAwesome" 
                     icon={"users"} 
@@ -42,7 +58,10 @@ const PageTitle = () => {
                     <p>MULTI SWIPE</p>
                 </Link>
             </div>
-            <PrivacyPolicy />
+            <PrivacyPolicy 
+            onClick={handleClick}
+            checked={checked}
+            />
         </div>
     )
 }
