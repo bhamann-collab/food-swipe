@@ -1,4 +1,5 @@
 import React from 'react'
+import PrivacyPolicy from './PrivacyPolicy'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -12,7 +13,6 @@ const iconList = Object
   .map(icon => Icons[icon])
 
   library.add(...iconList)
-  console.log(iconList)
 //Needed to import font awesome
 
 const PageTitle = () => {
@@ -42,6 +42,7 @@ const PageTitle = () => {
                     <p>MULTI SWIPE</p>
                 </Link>
             </div>
+            <PrivacyPolicy />
         </div>
     )
 }
