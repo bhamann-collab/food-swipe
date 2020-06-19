@@ -1,0 +1,33 @@
+.titlePage {
+    margin-top: 50px;
+    h1 {
+        font-family: "Pandorama";
+        font-size: 87px;
+    }
+}
+
+.titleButtons {
+    font-family: "Nunito";
+    font-weight: 700;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+
+    a {
+        text-decoration: none;
+        font-size: 25px;
+        color: #c0392b;
+        background-color: #ecf0f1;
+        border-radius: 10px;
+        margin: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            margin: 10px;
+            padding: 8px;
+        }
+    }
+}
