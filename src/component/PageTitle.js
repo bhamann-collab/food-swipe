@@ -12,12 +12,18 @@ const iconList = Object
   .map(icon => Icons[icon])
 
   library.add(...iconList)
+  console.log(iconList)
 //Needed to import font awesome
 
 const PageTitle = () => {
     return (
         <div className="titlePage">
             <h1>Food Tinder</h1>
+            <FontAwesomeIcon
+            className="titleFontAwesome pizzaSlice" 
+            icon={"pizza-slice"} 
+            style={{color: "white"}}
+            />
             <div className="titleButtons">
                 <Link to="/pageSwipe">
                     <FontAwesomeIcon
