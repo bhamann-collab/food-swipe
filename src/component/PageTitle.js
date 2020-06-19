@@ -34,6 +34,7 @@ const PageTitle = () => {
             icon={"pizza-slice"} 
             style={{color: "white"}}
             />
+            <p className="intro">Swipe restaurants you're interested in and we'll make up your mind on where you'll eat today.</p>
             <div className="titleButtons">
                 <Link 
                 to={checked ? "/pageSwipe" : "/"}
