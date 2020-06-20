@@ -27,7 +27,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-spinners": "^0.8.3",
-    "react-tinder-card": "^1.1.4"
+    "react-tinder-card": "^1.1.4",
+    "request": "^2.88.2"
   },
   "scripts": {
     "start": "react-scripts start",

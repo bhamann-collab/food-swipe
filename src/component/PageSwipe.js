@@ -72,7 +72,11 @@ function PageSwipe() {
 			<LoadingSpinnerComponent />
             <div className="swipeArea">
 				{Object.keys(names).map((keyName,i) =>
-					<SwiperCard key={i} cardName={names[keyName].name}/>
+					<SwiperCard 
+					key={i} 
+					cardName={names[keyName].name}
+					cardPhoto={names[keyName].photo}
+					/>
 				)}
             </div>
         </div>
