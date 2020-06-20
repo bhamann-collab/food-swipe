@@ -10,9 +10,12 @@ const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
 const SwiperCard = props => {
 
 	const [propValue] = useState(props)
+	console.log(props)
+
+	const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${propValue.cardPhoto[0].photo_reference}&key=AIzaSyBZifzKH1or9Yf1IiwsnJYNkDmD6V3bkDY`
 
 	const [photo, setPhoto] = useState(
-		(propValue.cardPhoto[0].photo_reference === undefined || propValue.cardPhoto === null) ? exampleRestaurant : `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAwnIoZVOP8UHjprwWXf7qPilbtHM_pYj9JMOadlA6KBhrbRxAOLGstLErzBw6pEoaBplV0sSjqP8mpbbxI8jg1HZafX-lo53gBxNwARGg-RFxyAf5NU8H0Ba1Q69CpbFuEhBuaLfIMpgHmNIeTovwPz3DGhQ0J2fTXvHQKUovKUc6qloIhlqiqw&key=AIzaSyBZifzKH1or9Yf1IiwsnJYNkDmD6V3bkDY`
+		(propValue.cardPhoto[0].photo_reference === undefined || propValue.cardPhoto === null) ? exampleRestaurant : url
 		)
 	
 	// useEffect(() => {
