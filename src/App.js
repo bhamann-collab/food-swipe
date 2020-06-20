@@ -13,6 +13,8 @@ function App() {
 				<Switch>
 					<Route path="/" exact component={PageTitle} />
 					<Route path="/pageSwipe" component={PageSwipe} />
+					<Route path="/privacyPolicy" component={() => window.location = 'https://policies.google.com/privacy?hl=en-US'}/>
+					<Route path="/termsOfService" component={() => window.location = 'https://policies.google.com/terms?hl=en-US'}/>
 				</Switch>
 			</div>
 		</Router>

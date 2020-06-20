@@ -1,5 +1,6 @@
 .privacyPolicy {
     display: flex;
+    align-items: center;
     margin: 10px;
     background-color: black;
 
@@ -7,8 +8,12 @@
         color: white;
     }
 
-    p {
+    p, a {
         color: white;
         text-align: left;
+    }
+
+    a {
+        margin: 5px;
     }
 }

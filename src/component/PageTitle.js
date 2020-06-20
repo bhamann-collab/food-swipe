@@ -28,7 +28,7 @@ const PageTitle = () => {
 
     return (
         <div className="titlePage">
-            <h1>Food Tinder</h1>
+            <h1>Food Swiper</h1>
             <FontAwesomeIcon
             className="titleFontAwesome pizzaSlice" 
             icon={"pizza-slice"} 
