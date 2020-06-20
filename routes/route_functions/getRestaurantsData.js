@@ -17,6 +17,7 @@ function getRestaurantsData(api_key) {
 
             // The whole response has been received. Print out the result.
             resp.on('end', async () => {
+                console.log(data)
                 for(var i in JSON.parse(data).results) {
                     restaurantData[i] = {
                         name: JSON.parse(data).results[i].name,
