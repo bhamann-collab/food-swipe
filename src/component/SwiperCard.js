@@ -3,25 +3,19 @@ import TinderCard from 'react-tinder-card'
 import exampleRestaurant from '../img/example-api-img.jpg'
 import Button from './Button'
 import ImgContainer from './ImgContainer'
-import axios from 'axios'
-
-const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
 
 const SwiperCard = props => {
 
 	const [propValue] = useState(props)
-	console.log(props)
+	let placePhoto = propValue.cardPhoto[0].photo_reference
 
-	const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${propValue.cardPhoto[0].photo_reference}&key=AIzaSyBZifzKH1or9Yf1IiwsnJYNkDmD6V3bkDY`
+	const browserKey = `AIzaSyBZifzKH1or9Yf1IiwsnJYNkDmD6V3bkDY`
+	const url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${placePhoto}&key=${browserKey}`
 
-	const [photo, setPhoto] = useState(
-		(propValue.cardPhoto[0].photo_reference === undefined || propValue.cardPhoto === null) ? exampleRestaurant : url
+	//photo variable can either be a google photo API attempt or a generic photo if place has no photo
+	const [photo] = useState(
+		(placePhoto === undefined || placePhoto === null) ? exampleRestaurant : url
 		)
-	
-	// useEffect(() => {
-	// 	getPhotos();
-	// }, [])
-
 	
 
   	const onSwipe = (direction) => {
@@ -31,27 +25,6 @@ const SwiperCard = props => {
   	const onCardLeftScreen = (myIdentifier) => {
     	console.log(myIdentifier + ' left the screen')
 	}
-
-	//Getting Restaurant photo from server
-	function getPhotos() {
-		if(propValue.cardPhoto[0].photo_reference === undefined || propValue.cardPhoto === null) {
-			//Photo equals generic card
-			
-		} else {
-			//Using axios to get a photo
-			axios
-			.post(`${API_ENDPOINT}/api/getPhoto/${propValue.cardPhoto[0].photo_reference}`)
-			.then(({data}) => {
-				//Cutting out some objects
-				console.log(data)
-				setPhoto(data)
-			})
-			.catch(err => {
-				console.log(err)
-			})
-			setPhoto(propValue.cardPhoto[0].photo_reference)
-		}
-	};
 
   	return (
 			//Swipable card properties
