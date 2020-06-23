@@ -69,7 +69,7 @@ function PageSwipe() {
     return (
         <div className="App">
             <Timer />
-			<LoadingSpinnerComponent />
+			{/* <LoadingSpinnerComponent />
             <div className="swipeArea">
 				{Object.keys(names).map((keyName,i) =>
 					<SwiperCard 
@@ -78,7 +78,7 @@ function PageSwipe() {
 					cardPhoto={names[keyName].photo}
 					/>
 				)}
-            </div>
+            </div> */}
         </div>
     );
 }
