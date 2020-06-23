@@ -1,0 +1,61 @@
+.swipeArea {
+  position: absolute;
+  width: 100%;
+  height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.singleCard {
+  width: 80%;
+  height: 600px;
+  background-color: #f1f2f6;
+  border-radius: 10px;
+  position: absolute;
+  max-width: 600px;
+  min-width: 250px;
+}
+
+.singleCard .container {
+  padding: 35px 5px 40px 10px;
+  height: 30%;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.singleCard .container p {
+  margin: 0;
+  padding: 0;
+}
+
+.singleCard .button-container {
+  width: 100%;
+  height: 60px;
+  bottom: 25.2%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+/*# sourceMappingURL=SwiperCard.css.map */

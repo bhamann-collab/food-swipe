@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Timer from './Timer'
 import SwiperCard from './SwiperCard'
 import LoadingSpinnerComponent from "./LoadingSpinnerComponent"
@@ -9,7 +9,12 @@ const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
 console.log(API_ENDPOINT)
 
 function PageSwipe() {
-  	const [names, setNames] = useState([])
+	  const [names, setNames] = useState([])
+
+	  //useRef
+	  const cardSwiped = useRef(false);
+	  const swipeLeft = useRef(false);
+
 
 	//Starting out with the app wanting to know your location
   	useEffect(() => {
@@ -63,22 +68,51 @@ function PageSwipe() {
 			})
 		)
 
-    }
+	}
 
-    console.log(names)
+	//Swipe data logic -------------------------
+	let rateRestaurant = [];
+	let timepassed = 0;
+	
+	//Timer props
+	function propTimer(time) {
+		console.log(cardSwiped.current)
+		timepassed++;
+		if(cardSwiped.current === true && swipeLeft.current === true) {
+			rateRestaurant.push(-(1/timepassed))
+			timepassed = 0;
+		} else if(cardSwiped.current === true && swipeLeft.current === false) {
+			rateRestaurant.push(timepassed)
+			timepassed = 0;
+		}
+		cardSwiped.current = false;
+		console.log(rateRestaurant)
+	}
+
+	function propSwiped(isLeft) {
+		if(isLeft === false) {
+			swipeLeft.current = false
+		} else {
+			swipeLeft.current = true
+		}
+		cardSwiped.current = true;
+	}
+	//Swipe data logic -------------------------
+    
     return (
         <div className="App">
-            <Timer />
-			{/* <LoadingSpinnerComponent />
+            <Timer propTimer={propTimer}/>
+			<LoadingSpinnerComponent />
             <div className="swipeArea">
 				{Object.keys(names).map((keyName,i) =>
 					<SwiperCard 
 					key={i} 
 					cardName={names[keyName].name}
 					cardPhoto={names[keyName].photo}
+					propSwiped={propSwiped}
 					/>
 				)}
-            </div> */}
+            </div>
         </div>
     );
 }

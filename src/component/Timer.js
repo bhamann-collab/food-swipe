@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef, } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const Timer = () => {
+const Timer = (props) => {
     const [timeLeft, setTimeLeft] = useState(30)
+
+
     let history = useHistory();
 
-    const intervalRef = useRef(30);
+    const intervalRef = useRef(5000);
 
     let swipeTimer
 
@@ -14,6 +16,8 @@ const Timer = () => {
             intervalRef.current--
             setTimeLeft(intervalRef.current)
             console.log(intervalRef)
+            //Passing timer props to Parent
+            props.propTimer(intervalRef.current)
             if (intervalRef.current === 0) {
                 clearInterval(swipeTimer)
                 transitionToResults()
