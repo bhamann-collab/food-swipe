@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, } from 'react'
+import { useHistory } from 'react-router-dom'
 
 const Timer = () => {
     const [timeLeft, setTimeLeft] = useState(30)
+    let history = useHistory();
 
     const intervalRef = useRef(30);
 
@@ -21,6 +23,7 @@ const Timer = () => {
 
     function transitionToResults() {
         console.log("We are going to transition to the results page")
+        history.push('/pageResults')
     }
 
     return (
