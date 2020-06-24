@@ -4,22 +4,28 @@ import SwiperCard from './SwiperCard'
 import LoadingSpinnerComponent from "./LoadingSpinnerComponent"
 import { trackPromise } from 'react-promise-tracker'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
 console.log(API_ENDPOINT)
 
 function PageSwipe() {
-	  const [names, setNames] = useState([])
+	const [names, setNames] = useState([])
+
+	//Getting names of restaurants internally
+	const namesRef = useRef([])
 
 	  //useRef
 	  const cardSwiped = useRef(false);
 	  const swipeLeft = useRef(false);
 
+	  //React Router
+	  let history = useHistory();
 
 	//Starting out with the app wanting to know your location
   	useEffect(() => {
     	myLocation();
-  	}, [])
+  	},[])
 
 
     //Geolocation Starts Here -------------------
@@ -61,6 +67,7 @@ function PageSwipe() {
 			.then(({data}) => {
 				//Cutting out some objects
 				let sliceData = (({ __v, _id, ...o}) => o)(data)
+				namesRef.current = sliceData
 				  setNames(sliceData)
 			})
 			.catch(err => {
@@ -98,10 +105,20 @@ function PageSwipe() {
 		cardSwiped.current = true;
 	}
 	//Swipe data logic -------------------------
-    
+	
+	function transitionToResults() {
+		console.log("We are going to transition to the results page")
+		console.log(rateRestaurant)
+		console.log(namesRef.current)
+        //history.push('/pageResults')
+	}
+
     return (
         <div className="App">
-            <Timer propTimer={propTimer}/>
+			<Timer 
+			propTimer={propTimer}
+			transitionToResults={transitionToResults}
+			/>
 			<LoadingSpinnerComponent />
             <div className="swipeArea">
 				{Object.keys(names).map((keyName,i) =>

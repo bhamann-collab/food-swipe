@@ -7,7 +7,7 @@ const Timer = (props) => {
 
     let history = useHistory();
 
-    const intervalRef = useRef(5000);
+    const intervalRef = useRef(10);
 
     let swipeTimer
 
@@ -20,15 +20,11 @@ const Timer = (props) => {
             props.propTimer(intervalRef.current)
             if (intervalRef.current === 0) {
                 clearInterval(swipeTimer)
-                transitionToResults()
+                props.transitionToResults()
             }
         }, 1000);
     }, [])
 
-    function transitionToResults() {
-        console.log("We are going to transition to the results page")
-        history.push('/pageResults')
-    }
 
     return (
         <div className="timer">
