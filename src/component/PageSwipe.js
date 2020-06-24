@@ -89,7 +89,7 @@ function PageSwipe() {
 			rateRestaurant.push(-(1/timepassed))
 			timepassed = 0;
 		} else if(cardSwiped.current === true && swipeLeft.current === false) {
-			rateRestaurant.push(timepassed)
+			rateRestaurant.push(1/timepassed)
 			timepassed = 0;
 		}
 		cardSwiped.current = false;
@@ -109,10 +109,20 @@ function PageSwipe() {
 	function transitionToResults() {
 		console.log("We are going to transition to the results page")
 		let data = Object.keys(namesRef.current).map((keyName, i) => namesRef.current[keyName].name)
-		console.log(data)
-		console.log(namesRef.current)
 		axios
 		.post(`${API_ENDPOINT}/api/resultsData/`, {rateRestaurant, data})
+		.then(({data}) => {
+			//Cutting out some objects
+		console.log("Results data")
+		console.log(data)
+		history.push({
+			pathname: '/pageResults',
+			state: { myData: data}
+			})
+		})
+		.catch(err => {
+			console.log(err)
+		})
         //history.push('/pageResults')
 	}
 

@@ -6,8 +6,10 @@ rankRestaurants = require('./route_functions/rankRestaurants')
 
 router.post('/api/resultsData', (req, res) => {
     let {rateRestaurant, data} = req.body
-    console.log(rateRestaurant)
-    console.log(data)
+    data = data.reverse();
+    let results = rankRestaurants(data, rateRestaurant)
+    console.log('sending results back now')
+    res.send(JSON.stringify(results))
 })
 
 module.exports = router;
