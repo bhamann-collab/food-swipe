@@ -47,6 +47,7 @@ app.use(cors())
 
 //Using routes
 app.use(require("./routes/geolocation"))
+app.use(require("./routes/results"))
 
 if (dev) {
     app.use(morgan('dev'))

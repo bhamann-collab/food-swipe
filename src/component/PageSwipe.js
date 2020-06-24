@@ -108,8 +108,11 @@ function PageSwipe() {
 	
 	function transitionToResults() {
 		console.log("We are going to transition to the results page")
-		console.log(rateRestaurant)
+		let data = Object.keys(namesRef.current).map((keyName, i) => namesRef.current[keyName].name)
+		console.log(data)
 		console.log(namesRef.current)
+		axios
+		.post(`${API_ENDPOINT}/api/resultsData/`, {rateRestaurant, data})
         //history.push('/pageResults')
 	}
 
