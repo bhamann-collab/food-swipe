@@ -14,6 +14,7 @@ const iconList = Object
 
   library.add(...iconList)
 //Needed to import font awesome
+console.log(iconList)
 
 const PageTitle = () => {
     const[checked, setChecked] = useState(false)

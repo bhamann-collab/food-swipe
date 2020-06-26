@@ -1,0 +1,38 @@
+.firstPlaceArea {
+    height: 40vh;
+    width: 100%;
+    background: #0652DD;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .smallFontWeight {
+        font-weight: 400;
+        font-size: 30px;
+    }
+
+    .firstPlaceText {
+        display: flex;
+        justify-content: center;
+
+        .placingNumber {
+            font-size: 50px;
+
+        }
+
+        .placingName {
+            font-size: 40px;
+        }
+    }
+}
+
+.crown {
+    font-size: 80px;
+}
+
+.rankingPlace {
+    
+}
