@@ -8,12 +8,14 @@
         color: white;
     }
 
-    p, a {
+    p {
         color: white;
         text-align: left;
     }
 
     a {
+        color: blue;
         margin: 5px;
+        text-decoration: underline;
     }
 }

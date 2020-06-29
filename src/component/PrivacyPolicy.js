@@ -11,7 +11,7 @@ const PrivacyPolicy = ({ onClick, checked }) => {
             onClick={onClick}
             inputProps={{ 'aria-label': 'Checkbox A' }}
             />
-            <p>I understand that this app takes my GPS coordinates. I also agree with Google </p><a href="/termsOfService"> Terms of Service </a> <p>and </p><a href="/privacyPolicy">Privacy Policy.</a>
+            <p>I understand that this app takes my GPS coordinates. I also agree with Google<a href="/termsOfService">Terms of Service</a>and<a href="/privacyPolicy">Privacy Policy.</a></p>
         </div>
     )
 }
