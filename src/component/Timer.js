@@ -7,7 +7,7 @@ const Timer = (props) => {
 
     let history = useHistory();
 
-    const intervalRef = useRef(3000);
+    const intervalRef = useRef(300);
 
     let swipeTimer
 
@@ -15,20 +15,19 @@ const Timer = (props) => {
         swipeTimer = setInterval(() => {
             intervalRef.current--
             setTimeLeft(intervalRef.current)
-            console.log(intervalRef)
             //Passing timer props to Parent
             props.propTimer(intervalRef.current)
             if (intervalRef.current === 0) {
                 clearInterval(swipeTimer)
                 props.transitionToResults()
             }
-        }, 1000);
+        }, 100);
     }, [])
 
 
     return (
         <div className="timer">
-            <h1>Time Left: {intervalRef.current}</h1>
+            <h1>Time Left: {Math.ceil(intervalRef.current/10)}</h1>
         </div>
     )
 }

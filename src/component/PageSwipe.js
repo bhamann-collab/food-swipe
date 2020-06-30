@@ -83,7 +83,6 @@ function PageSwipe() {
 	
 	//Timer props
 	function propTimer(time) {
-		console.log(cardSwiped.current)
 		timepassed++;
 		if(cardSwiped.current === true && swipeLeft.current === true) {
 			rateRestaurant.push(-(1/timepassed))
@@ -93,7 +92,6 @@ function PageSwipe() {
 			timepassed = 0;
 		}
 		cardSwiped.current = false;
-		console.log(rateRestaurant)
 	}
 
 	function propSwiped(isLeft, isDownOrUp) {
