@@ -123,7 +123,6 @@ function PageSwipe() {
 		.catch(err => {
 			console.log(err)
 		})
-        //history.push('/pageResults')
 	}
 
     return (

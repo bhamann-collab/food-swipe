@@ -17,13 +17,14 @@ const iconList = Object
 
 const ImgContainer = props => {
 
-    const [propValue] = useState(props)
+    //Setting the background and icon colors
     const [colors, setColors] = useState({})
 
     useEffect(() => {
     	colorInit();
   	},[])
 
+      //getting a color pattern from the server before components being rendered
       function colorInit() {
         axios
         .post(`${API_ENDPOINT}/api/getPhotoColors`)
@@ -36,7 +37,6 @@ const ImgContainer = props => {
         })  
     }
 
-    console.log(colors.background)
 
     return (
         <div className="imgContainer" style={{backgroundColor: colors.background}}>
