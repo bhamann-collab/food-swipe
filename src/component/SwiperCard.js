@@ -12,7 +12,8 @@ const SwiperCard = props => {
   	const onSwipe = (direction) => {
 		console.log('You swiped: ' + direction)
 		let isLeft = (direction === "left") ? true : false;
-		props.propSwiped(isLeft)
+		let isDownOrUp = (direction === "down" || direction === "up") ? true : false;
+		props.propSwiped(isLeft, isDownOrUp)
   	}
     
   	const onCardLeftScreen = (myIdentifier) => {

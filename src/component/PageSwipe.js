@@ -96,13 +96,15 @@ function PageSwipe() {
 		console.log(rateRestaurant)
 	}
 
-	function propSwiped(isLeft) {
-		if(isLeft === false) {
-			swipeLeft.current = false
-		} else {
-			swipeLeft.current = true
+	function propSwiped(isLeft, isDownOrUp) {
+		if(isDownOrUp === false) {
+			if(isLeft === false) {
+				swipeLeft.current = false
+			} else {
+				swipeLeft.current = true
+			}
+			cardSwiped.current = true;
 		}
-		cardSwiped.current = true;
 	}
 	//Swipe data logic -------------------------
 	
