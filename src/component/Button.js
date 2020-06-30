@@ -12,7 +12,7 @@ const iconList = Object
 
   library.add(...iconList)
 //Needed to import font awesome
-
+console.log(iconList)
 const Button = props => {
     //Currently uses props the color of the icon and the type of icon
     //propValue.iconValue and propValue.colorValue will now exist

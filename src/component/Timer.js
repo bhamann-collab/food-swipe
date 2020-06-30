@@ -7,7 +7,7 @@ const Timer = (props) => {
 
     let history = useHistory();
 
-    const intervalRef = useRef(30);
+    const intervalRef = useRef(3000);
 
     let swipeTimer
 

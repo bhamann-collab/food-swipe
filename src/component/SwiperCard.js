@@ -37,7 +37,7 @@ const SwiperCard = props => {
 			preventSwipe={['up', 'down']}>
 			
 			{/* Image Placement */}
-			<ImgContainer imgSrc={photo}/>
+			<ImgContainer imgSrc={`#FCE77D`}/>
 
 			{/* Button declaration */}
 			<div className="button-container">
