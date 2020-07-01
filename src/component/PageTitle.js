@@ -29,14 +29,9 @@ const PageTitle = () => {
         setShow(!show)
     }
 
-    const boxUnticked = () => {
-        console.log("box is unticked")
-    }
-
     return (
         <div className="titlePage">
             <ModalTitle show={show} modalClick={modalClick}/>
-            <button onClick={modalClick}>test button</button>
             <h1>Food Swiper</h1>
             <FontAwesomeIcon
             className="titleFontAwesome pizzaSlice" 
@@ -47,7 +42,7 @@ const PageTitle = () => {
             <div className="titleButtons">
                 <Link 
                 to={checked ? "/pageSwipe" : "/"}
-                onClick={!checked ? boxUnticked : null}
+                onClick={!checked ? modalClick : null}
                 >
                     <FontAwesomeIcon
                     className="titleFontAwesome" 
@@ -58,7 +53,7 @@ const PageTitle = () => {
                 </Link>
                 <Link 
                 to={checked ? "/toBeReplaced" : "/"}
-                onClick={!checked ? boxUnticked : null}
+                onClick={!checked ? modalClick : null}
                 >
                     <FontAwesomeIcon 
                     className="titleFontAwesome" 
