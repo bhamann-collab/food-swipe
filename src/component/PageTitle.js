@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PrivacyPolicy from './PrivacyPolicy'
+import ModalTitle from './ModalTitle'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -18,10 +19,15 @@ console.log(iconList)
 
 const PageTitle = () => {
     const[checked, setChecked] = useState(false)
+    const[show, setShow] = useState(false)
 
     const handleClick = () => {
         setChecked(!checked)
     }  
+
+    const modalClick = () => {
+        setShow(!show)
+    }
 
     const boxUnticked = () => {
         console.log("box is unticked")
@@ -29,6 +35,8 @@ const PageTitle = () => {
 
     return (
         <div className="titlePage">
+            <ModalTitle show={show}/>
+            <button onClick={modalClick}>test button</button>
             <h1>Food Swiper</h1>
             <FontAwesomeIcon
             className="titleFontAwesome pizzaSlice" 
