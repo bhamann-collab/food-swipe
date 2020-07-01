@@ -6,8 +6,9 @@ const ModalTitle = (props) => {
         return null;
     }
     return (
-        <div>
+        <div className="modal">
             <h1>Hello, I am a modal</h1>
+            <button onClick={props.modalClick}>undo me</button>
         </div>
     )
 }

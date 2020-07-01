@@ -35,7 +35,7 @@ const PageTitle = () => {
 
     return (
         <div className="titlePage">
-            <ModalTitle show={show}/>
+            <ModalTitle show={show} modalClick={modalClick}/>
             <button onClick={modalClick}>test button</button>
             <h1>Food Swiper</h1>
             <FontAwesomeIcon
