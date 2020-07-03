@@ -40,8 +40,8 @@ const SwiperCard = props => {
 			{/* Restaurant Information */}
 			<div className="container">
 				<p>{propValue.cardName}</p>
-				<p>$$</p>
-				<p>200m away</p>
+				{/* <p>$$</p> */}
+				<p>---m away</p>
 			</div>
 
 		</TinderCard>
