@@ -8,7 +8,12 @@ const HostRoom = () => {
             <div className="toggling">
                 <p>Host Room</p>
                 <ToggleOnOff />
-            </div> 
+            </div>
+            <p className="roomNumber">Room Number: A5B26</p>
+            <div className="participantContainer">
+                <p className="underline">Participants</p>
+            </div>
+            <button>Start Swiping</button>
         </div>
     )
 }

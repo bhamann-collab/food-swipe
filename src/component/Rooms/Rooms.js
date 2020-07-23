@@ -7,9 +7,9 @@ import './Rooms.scss'
 const Rooms = () => {
     return (
         <div className="Rooms">
-           <Nickname /> 
-           <HostRoom /> 
-           <JoinRoom /> 
+            <Nickname />
+            <HostRoom />
+            <JoinRoom /> 
         </div>
     )
 }

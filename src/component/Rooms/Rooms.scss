@@ -6,6 +6,9 @@
     font-weight: 700;
     color: white;
     font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Rooms label {
@@ -29,9 +32,19 @@
 }
 
 .HostRoom {
+    margin-top: 20px;
+    width: 90%;
+    background-color: #34495e;
     font-size: 50px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px;
+
+    h1, p {
+        margin: 0;
+    }
 
     > div > div {
         display: flex;
@@ -44,5 +57,36 @@
 .toggling {
     display: flex;
     justify-content: center;
+}
+
+.participantContainer {
+    background-color: white;
+    width: 80%;
+    border-radius: 10px;
+    color: black;
+    min-height: 200px;
+
+    .underline {
+        text-decoration: underline;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.HostRoom button {
+    width: 80%;
+    background-color: #27ae60;
+    border: none;
+    border-radius: 10px;
+    margin-top: 5px;
+    font-size: 30px;
+    color: white;
+}
+
+.roomNumber {
+    font-weight: 400;
+    font-size: 30px;
 }
 
