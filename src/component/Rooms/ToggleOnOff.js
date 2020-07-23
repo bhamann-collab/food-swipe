@@ -1,14 +1,20 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import { HostContext, JoinContext } from './Rooms'
 import Switch from 'react-input-switch'
 
 const ToggleOnOff = (props) => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(1);
     //We are changing the value of the isHost flag everytime we are clicking on the component
     const hostContext = useContext(HostContext)
     const joinContext = useContext(JoinContext)
 
+    //Don't want to render anything when first mounted
+    const isFirstRun = useRef(true);
     useEffect(() => {
+        if (isFirstRun.current) {
+            isFirstRun.current = false;
+            return;
+        }
         if(props.toggleType === 'host') {
             hostContext.isHostDispatch('setHost')
         } else {
