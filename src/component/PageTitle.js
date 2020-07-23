@@ -52,7 +52,7 @@ const PageTitle = () => {
                     <p>SOLO SWIPE</p>
                 </Link>
                 <Link 
-                to={checked ? "/toBeReplaced" : "/"}
+                to={checked ? "/rooms" : "/"}
                 onClick={!checked ? modalClick : null}
                 >
                     <FontAwesomeIcon 
