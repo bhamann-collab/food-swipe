@@ -1,9 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { HostContext, JoinContext } from './Rooms'
 import Switch from 'react-input-switch'
 
-const ToggleOnOff = () => {
+const ToggleOnOff = (props) => {
     const [value, setValue] = useState(0);
+    //We are changing the value of the isHost flag everytime we are clicking on the component
+    const hostContext = useContext(HostContext)
+    const joinContext = useContext(JoinContext)
 
+    useEffect(() => {
+        if(props.toggleType === 'host') {
+            hostContext.isHostDispatch('setHost')
+        } else {
+            joinContext.isJoinDispatch('setHost')
+        }
+    }, [value])
 
     return (
         <div>
@@ -27,7 +38,7 @@ const ToggleOnOff = () => {
                     right: 2,
                     left: 30
                 }
-            }} value={value} onChange={setValue} 
+            }} value={value} onChange={setValue}
             />
         </div>
     )
