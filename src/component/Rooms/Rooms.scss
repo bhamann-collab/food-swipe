@@ -28,3 +28,21 @@
     }
 }
 
+.HostRoom {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+
+    > div > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+}
+
+.toggling {
+    display: flex;
+    justify-content: center;
+}
+
