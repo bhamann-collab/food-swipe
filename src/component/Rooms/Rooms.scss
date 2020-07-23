@@ -1,0 +1,30 @@
+@import "../../css/fonts.scss";
+
+.Rooms {
+    margin-top: 20px;
+    font-family: 'Nunito';
+    font-weight: 700;
+    color: white;
+    font-size: 30px;
+}
+
+.Rooms label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Rooms input {
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 20px;
+    transition: all .3s ease;
+    animation: linear ease-in 0.1s;
+
+    &:focus {
+        border: 3px solid #0652DD;
+    }
+}
+

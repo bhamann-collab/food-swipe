@@ -2,10 +2,11 @@ import React from 'react'
 import Nickname from './Nickname'
 import HostRoom from './HostRoom'
 import JoinRoom from './JoinRoom'
+import './Rooms.scss'
 
 const Rooms = () => {
     return (
-        <div>
+        <div className="Rooms">
            <Nickname /> 
            <HostRoom /> 
            <JoinRoom /> 

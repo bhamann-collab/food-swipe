@@ -7,7 +7,7 @@ const Nickname = () => {
     }
 
     return (
-        <div>
+        <div className="Nickname">
             <form onSubmit={handleSubmit}>
                 <label>
                     NickName: 
