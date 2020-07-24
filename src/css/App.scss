@@ -25,3 +25,8 @@ body {
   background-image: linear-gradient(to top, #f8a5c2 ,#c0392b);
   text-align: center;
 }
+
+//Colapse animation for 'react-collapse'
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from 'react'
 import { HostContext, JoinContext } from './Rooms'
 import Switch from 'react-input-switch'
+import { findByLabelText } from '@testing-library/react';
 
 const ToggleOnOff = (props) => {
     const [value, setValue] = useState(1);
@@ -23,7 +24,13 @@ const ToggleOnOff = (props) => {
     }, [value])
 
     return (
-        <div>
+        <div
+        style={{
+            display: "flex",
+            alignItems: "center",
+            margin: "5px"
+        }}
+        >
             <Switch styles={{
                 container: {
                     width: 60,

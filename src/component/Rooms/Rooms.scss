@@ -46,17 +46,19 @@
         margin: 0;
     }
 
-    > div > div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px;
-    }
 }
 
 .toggling {
     display: flex;
     justify-content: center;
+}
+
+.openHost {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 1s all ease;
 }
 
 .participantContainer {
@@ -104,8 +106,5 @@
     font-size: 30px;
     color: white;
 }
-
-
-
 
 
