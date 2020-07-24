@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { NicknameContext } from './Rooms'
 
 const Nickname = () => {
+    //
+    const nicknameContext = useContext(NicknameContext)
+
+    const handleChange = e => {
+        nicknameContext.nicknameDispatch({type: 'setNickname', name: e.target.value})
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -11,7 +18,7 @@ const Nickname = () => {
             <form onSubmit={handleSubmit}>
                 <label>
                     NickName: 
-                    <input type="text"/>
+                    <input type="text" onChange={handleChange}/>
                 </label>
             </form> 
         </div>

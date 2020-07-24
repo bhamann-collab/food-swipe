@@ -17,9 +17,9 @@ const ToggleOnOff = (props) => {
             return;
         }
         if(props.toggleType === 'host') {
-            hostContext.isHostDispatch('toggleRoom')
+            hostContext.isHostDispatch({type: 'toggleRoom'})
         } else {
-            joinContext.isJoinDispatch('toggleRoom')
+            joinContext.isJoinDispatch({type: 'toggleRoom'})
         }
     }, [value])
 
