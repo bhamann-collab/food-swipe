@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ToggleOnOff from './ToggleOnOff'
+import { JoinContext } from './Rooms'
+import { UnmountClosed } from 'react-collapse'
 
 const JoinRoom = () => {
+    //If the isJoin flag is true, then we can use the functionality of this component
+    const joinContext = useContext(JoinContext)
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -13,16 +17,18 @@ const JoinRoom = () => {
                 <p>Join Room</p>
                 <ToggleOnOff />
             </div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <p>Enter Room Code:</p> 
-                    <input type="text"/>
-                </label>
-                <p
-                style={{color: "#27ae60"}}
-                >Room is Valid! (ExampleName)</p>
-                <button>Join Room</button>
-            </form> 
+            <UnmountClosed isOpened={joinContext.isJoinState}>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        <p>Enter Code:</p> 
+                        <input type="text"/>
+                    </label>
+                    <p
+                    style={{color: "#27ae60"}}
+                    >Room is Valid! (ExampleName)</p>
+                    <button>Join Room</button>
+                </form>
+            </UnmountClosed> 
         </div>
     )
 }

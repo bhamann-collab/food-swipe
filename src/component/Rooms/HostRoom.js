@@ -13,7 +13,7 @@ const HostRoom = () => {
                 <p>Host Room</p>
                 <ToggleOnOff toggleType={'host'}/>
             </div>
-            <UnmountClosed isOpened={hostContext.isHostState} initialStyle={{height: 0, overflow: 'hidden'}}>
+            <UnmountClosed isOpened={hostContext.isHostState}>
             <div className="openHost">
                 <p className="roomNumber">Room Number: A5B26</p>
                 <div className="participantContainer">
