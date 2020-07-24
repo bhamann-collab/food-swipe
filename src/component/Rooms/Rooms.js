@@ -11,7 +11,7 @@ export const JoinContext = React.createContext()
 const initialState = 0;
 const reducer = (state, action) => {
     switch(action) {
-        case 'setHost':
+        case 'toggleRoom':
             if (state === 0) {
                 return 1
             } else {
