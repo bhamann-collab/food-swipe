@@ -3,6 +3,7 @@ import Nickname from './Nickname'
 import HostRoom from './HostRoom'
 import JoinRoom from './JoinRoom'
 import './Rooms.scss'
+import {socket} from '../../App'
 
 //useContext to deal with the state
 export const HostContext = React.createContext()
@@ -14,6 +15,7 @@ export const RoomNameContext = React.createContext()
 
 const initialState = 0;
 const reducer = (state, action) => {
+    console.log('testing')
     switch(action.type) {
         case 'toggleRoom':
             if (state === 0) {
@@ -24,7 +26,9 @@ const reducer = (state, action) => {
         case 'setNickname':
             return action.name
         case 'generateRoomNumber':
-            return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+            let randomLetters = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+            socket.emit("room code", randomLetters)
+            return randomLetters;
         case 'removeRoomNumber':
             return '';
         default:
@@ -44,7 +48,7 @@ const Rooms = () => {
     return (
         <div className="Rooms">
             <RoomNameContext.Provider
-                value={{roomNameState: roomName, roomNameDispatch: dispatchRoomName }}
+                value={{ roomNameState: roomName, roomNameDispatch: dispatchRoomName }}
             >
             <NicknameContext.Provider
                 value={{ nicknameState: nickname, nicknameDispatch: dispatchNickname }}

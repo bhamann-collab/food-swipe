@@ -9,10 +9,14 @@ import './css/App.scss';
 
 const ENDPOINT = `http://localhost:5000`
 
+//useContext() with socket.io
+export const SocketContext = React.createContext()
+export const socket = socketIOClient(ENDPOINT);
+
 function App() {
+	
 
 	useEffect(() => {
-		const socket = socketIOClient(ENDPOINT);
 		socket.on("test", data => {
 			console.log(data)
 		})
@@ -20,6 +24,9 @@ function App() {
 
     return (
 		<Router>
+			<SocketContext.Provider
+				value={socket}
+			>
 			<div className="App">
 				<Switch>
 					<Route path="/" exact component={PageTitle} />
@@ -30,6 +37,7 @@ function App() {
 					<Route path="/termsOfService" component={() => window.location = 'https://policies.google.com/terms?hl=en-US'}/>
 				</Switch>
 			</div>
+			</SocketContext.Provider>
 		</Router>
     );
 }

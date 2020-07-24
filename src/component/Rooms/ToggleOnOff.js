@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from 'react'
 import { HostContext, JoinContext, RoomNameContext } from './Rooms'
 import Switch from 'react-input-switch'
 import { findByLabelText } from '@testing-library/react';
+import { SocketContext } from '../../App'
 
 const ToggleOnOff = (props) => {
     const [value, setValue] = useState(1);
@@ -10,6 +11,9 @@ const ToggleOnOff = (props) => {
     const joinContext = useContext(JoinContext)
     //Changing the state of the generated room number
     const roomNameContext = useContext(RoomNameContext)
+
+    //socket.io
+    const socketContext = useContext(SocketContext)
 
     //Don't want to render anything when first mounted
     const isFirstRun = useRef(true);
@@ -24,6 +28,7 @@ const ToggleOnOff = (props) => {
             //If the Host room is open, we generate a new host number
             if (value === 0) {
                 roomNameContext.roomNameDispatch({type: 'generateRoomNumber'})
+                //socketContext.emit("room code", roomNameContext.roomNameState)
             } else {
                 roomNameContext.roomNameDispatch({type: 'removeRoomNumber'})
             }
