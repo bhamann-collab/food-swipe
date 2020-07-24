@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from 'react'
-import { HostContext, JoinContext } from './Rooms'
+import { HostContext, JoinContext, RoomNameContext } from './Rooms'
 import Switch from 'react-input-switch'
 import { findByLabelText } from '@testing-library/react';
 
@@ -8,6 +8,8 @@ const ToggleOnOff = (props) => {
     //We are changing the value of the isHost flag everytime we are clicking on the component
     const hostContext = useContext(HostContext)
     const joinContext = useContext(JoinContext)
+    //Changing the state of the generated room number
+    const roomNameContext = useContext(RoomNameContext)
 
     //Don't want to render anything when first mounted
     const isFirstRun = useRef(true);
@@ -17,7 +19,15 @@ const ToggleOnOff = (props) => {
             return;
         }
         if(props.toggleType === 'host') {
+            //Opening the host room
             hostContext.isHostDispatch({type: 'toggleRoom'})
+            //If the Host room is open, we generate a new host number
+            if (value === 0) {
+                roomNameContext.roomNameDispatch({type: 'generateRoomNumber'})
+            } else {
+                roomNameContext.roomNameDispatch({type: 'removeRoomNumber'})
+            }
+            //Opening the Join room
         } else {
             joinContext.isJoinDispatch({type: 'toggleRoom'})
         }
