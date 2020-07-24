@@ -1,4 +1,4 @@
-const {createServer} = require('http')
+const { createServer } = require('http')
 const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
@@ -55,6 +55,9 @@ if (dev) {
 }
 
 const server = createServer(app)
+
+// socket.io
+const io = require(`./socket/sockets.js`).listen(server)
 
 server.listen(PORT, err => {
     if (err) throw err
