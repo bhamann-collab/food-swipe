@@ -36,9 +36,12 @@ module.exports.listen = function(app) {
             let validRoom = getRooms().indexOf(data)
             console.log(validRoom)
 
-            //continuing
+            //if it is valid
             if (validRoom !== -1) {
-                socket.emit('room is valid', "test")
+                socket.emit('room is valid', [])
+            } else {
+                //if it is not valid
+                socket.emit('room is not valid', [])
             }
         })
         

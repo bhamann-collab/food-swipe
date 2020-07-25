@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ToggleOnOff from './ToggleOnOff'
 import { JoinContext } from './Rooms'
 import { UnmountClosed } from 'react-collapse'
 import { SocketContext, socket } from '../../App'
 
 const JoinRoom = () => {
+    const [validRoom, setValidRoom] = useState(false)
+
     //If the isJoin flag is true, then we can use the functionality of this component
     const joinContext = useContext(JoinContext)
 
@@ -20,12 +22,18 @@ const JoinRoom = () => {
     }
 
     const handleButton = () => {
-        socketContext.emit("search code", '')
+        console.log('lets go')
     }
 
+    //continuing
     useEffect(() => {
-        socketContext.on()
-    })
+        socketContext.on('room is valid', () => {
+            setValidRoom(true)
+        })
+        socketContext.on('room is not valid', () => {
+            setValidRoom(false)
+        })
+    }, [])
     
     return (
         <div className="JoinRoom">
@@ -41,8 +49,8 @@ const JoinRoom = () => {
                     </label>
                     <p
                     style={{color: "#27ae60"}}
-                    >Room is Valid! (ExampleName)</p>
-                    <button onClick={handleButton}>Join Room</button>
+                    >{validRoom && `Room is Valid!`}</p>
+                    <button onClick={validRoom ? handleButton : null}>Join Room</button>
                 </form>
             </UnmountClosed> 
         </div>
