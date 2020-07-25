@@ -30,11 +30,11 @@ const ToggleOnOff = (props) => {
                 roomNameContext.roomNameDispatch({type: 'generateRoomNumber'})
                 //socketContext.emit("room code", roomNameContext.roomNameState)
             } else {
-                roomNameContext.roomNameDispatch({type: 'removeRoomNumber'})
+                roomNameContext.roomNameDispatch({type: 'removeRoomNumber', room: roomNameContext.roomNameState})
             }
             //Opening the Join room
         } else {
-            joinContext.isJoinDispatch({type: 'toggleRoom'})
+            joinContext.isJoinDispatch({ type: 'toggleRoom' })
         }
     }, [value])
 

@@ -23,8 +23,11 @@ module.exports.listen = function(app) {
             })
         })
 
-        socket.on("search code", () => {
-            console.log(roomCode)
+        //Delete Room
+        socket.on("delete room", (data) => {
+            socket.leave(data, () => {
+                console.log(getRooms())
+            })
         })
         
         //testing

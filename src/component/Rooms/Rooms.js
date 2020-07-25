@@ -30,6 +30,7 @@ const reducer = (state, action) => {
             socket.emit("room code", randomLetters)
             return randomLetters;
         case 'removeRoomNumber':
+            socket.emit("delete room", action.room);
             return '';
         default:
             return state
