@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ToggleOnOff from './ToggleOnOff'
 import { JoinContext } from './Rooms'
 import { UnmountClosed } from 'react-collapse'
-import { SocketContext } from '../../App'
+import { SocketContext, socket } from '../../App'
 
 const JoinRoom = () => {
     //If the isJoin flag is true, then we can use the functionality of this component
@@ -11,6 +11,10 @@ const JoinRoom = () => {
     //socket.io
     const socketContext = useContext(SocketContext)
 
+    const handleChange = e => {
+        socketContext.emit("Is Room Valid?", e.target.value)
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
     }
@@ -18,6 +22,10 @@ const JoinRoom = () => {
     const handleButton = () => {
         socketContext.emit("search code", '')
     }
+
+    useEffect(() => {
+        socketContext.on()
+    })
     
     return (
         <div className="JoinRoom">
@@ -29,7 +37,7 @@ const JoinRoom = () => {
                 <form onSubmit={handleSubmit}>
                     <label>
                         <p>Enter Code:</p> 
-                        <input type="text"/>
+                        <input type="text" onChange={handleChange}/>
                     </label>
                     <p
                     style={{color: "#27ae60"}}

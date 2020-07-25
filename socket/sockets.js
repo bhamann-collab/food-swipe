@@ -29,6 +29,18 @@ module.exports.listen = function(app) {
                 console.log(getRooms())
             })
         })
+
+        //Is the searched room valid
+        socket.on("Is Room Valid?", (data) => {
+            console.log(data)
+            let validRoom = getRooms().indexOf(data)
+            console.log(validRoom)
+
+            //continuing
+            if (validRoom !== -1) {
+                socket.emit('room is valid', "test")
+            }
+        })
         
         //testing
         socket.emit('test', 'hello client')
