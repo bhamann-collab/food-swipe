@@ -2,13 +2,21 @@ import React, { useContext } from 'react'
 import ToggleOnOff from './ToggleOnOff'
 import { JoinContext } from './Rooms'
 import { UnmountClosed } from 'react-collapse'
+import { SocketContext } from '../../App'
 
 const JoinRoom = () => {
     //If the isJoin flag is true, then we can use the functionality of this component
     const joinContext = useContext(JoinContext)
 
+    //socket.io
+    const socketContext = useContext(SocketContext)
+
     const handleSubmit = e => {
         e.preventDefault();
+    }
+
+    const handleButton = () => {
+        socketContext.emit("search code", '')
     }
     
     return (
@@ -26,7 +34,7 @@ const JoinRoom = () => {
                     <p
                     style={{color: "#27ae60"}}
                     >Room is Valid! (ExampleName)</p>
-                    <button>Join Room</button>
+                    <button onClick={handleButton}>Join Room</button>
                 </form>
             </UnmountClosed> 
         </div>
