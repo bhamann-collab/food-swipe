@@ -7,8 +7,18 @@ const getRooms = () => {
     return myKeys
 }
 
+const getNamesFromRoom = room => {
+    const nickname = []
+    for (socketID in io.nsps['/'].adapter.rooms[room].sockets) {
+        nickname.push(io.nsps['/'].connected[socketID].nickname);
+    }
+    return nickname
+}
+
 module.exports.listen = function(app) {
     io = socketio.listen(app)
+
+    io.sockets.nickname = ''
 
     io.on("connection", (socket) => {
         console.log("New client connected");
@@ -46,9 +56,10 @@ module.exports.listen = function(app) {
         })
 
         socket.on('send nickname', data => {
+            socket.nickname = data.nickname
             socket.join(data.code, () => {
-                console.log(data.nickname)
-                socket.to(data.code).emit('add participant', data.nickname)
+                console.log(getNamesFromRoom(data.code))
+                socket.to(data.code).emit('add participant', getNamesFromRoom(data.code))
             })
             socket.emit()
         })

@@ -6,7 +6,7 @@ const Participants = () => {
 
     useEffect(() => {
         socket.on('add participant', (nickname) => {
-            setParticipants(prevParticipants => [...prevParticipants, nickname])
+            setParticipants(nickname)
         })
     }, [])
 
