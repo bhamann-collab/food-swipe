@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ToggleOnOff from './ToggleOnOff'
-import { JoinContext } from './Rooms'
+import { JoinContext, NicknameContext } from './Rooms'
 import { UnmountClosed } from 'react-collapse'
 import { SocketContext, socket } from '../../App'
 
 const JoinRoom = () => {
     const [validRoom, setValidRoom] = useState(false)
+    const [code, setCode] = useState('')
+
+    //Using to send nickname to server
+    const nicknameContext = useContext(NicknameContext)
 
     //If the isJoin flag is true, then we can use the functionality of this component
     const joinContext = useContext(JoinContext)
@@ -14,6 +18,7 @@ const JoinRoom = () => {
     const socketContext = useContext(SocketContext)
 
     const handleChange = e => {
+        setCode(e.target.value)
         socketContext.emit("Is Room Valid?", e.target.value)
     }
 
@@ -22,7 +27,8 @@ const JoinRoom = () => {
     }
 
     const handleButton = () => {
-        console.log('lets go')
+        socket.emit('send nickname', { nickname: nicknameContext.nicknameState, code: code })
+    
     }
 
     //continuing

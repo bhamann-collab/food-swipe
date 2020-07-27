@@ -44,6 +44,14 @@ module.exports.listen = function(app) {
                 socket.emit('room is not valid', [])
             }
         })
+
+        socket.on('send nickname', data => {
+            socket.join(data.code, () => {
+                console.log(data.nickname)
+                socket.to(data.code).emit('add participant', data.nickname)
+            })
+            socket.emit()
+        })
         
         //testing
         socket.emit('test', 'hello client')
