@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from 'react'
-import { HostContext, JoinContext, RoomNameContext } from './Rooms'
+import { HostContext, JoinContext, RoomNameContext, NicknameContext } from './Rooms'
 import Switch from 'react-input-switch'
 import { findByLabelText } from '@testing-library/react';
 import { SocketContext } from '../../App'
@@ -11,6 +11,8 @@ const ToggleOnOff = (props) => {
     const joinContext = useContext(JoinContext)
     //Changing the state of the generated room number
     const roomNameContext = useContext(RoomNameContext)
+    //Sending the nickname to app then socket.io
+    const nicknameContext = useContext(NicknameContext)
 
     //socket.io
     const socketContext = useContext(SocketContext)
@@ -27,8 +29,7 @@ const ToggleOnOff = (props) => {
             hostContext.isHostDispatch({type: 'toggleRoom'})
             //If the Host room is open, we generate a new host number
             if (value === 0) {
-                roomNameContext.roomNameDispatch({type: 'generateRoomNumber'})
-                //socketContext.emit("room code", roomNameContext.roomNameState)
+                roomNameContext.roomNameDispatch({type: 'generateRoomNumber', nickname: nicknameContext.nicknameState})
             } else {
                 roomNameContext.roomNameDispatch({type: 'removeRoomNumber', room: roomNameContext.roomNameState})
             }
@@ -66,7 +67,7 @@ const ToggleOnOff = (props) => {
                     right: 2,
                     left: 30
                 }
-            }} value={value} onChange={setValue}
+            }} value={value} onChange={nicknameContext.nicknameState ? setValue : null}
             />
         </div>
     )

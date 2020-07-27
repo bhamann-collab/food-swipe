@@ -28,15 +28,19 @@ module.exports.listen = function(app) {
 
         //Room Code logic
         socket.on("room code", (data) => {
-            socket.join(data, () => {
-                console.log(getRooms())
+            console.log(data)
+            socket.join(data.code, () => {
+                socket.nickname = data.nickname
+                console.log(getNamesFromRoom(data.code))
+                socket.emit('add participant', getNamesFromRoom(data.code))
+                //console.log(getRooms())
             })
         })
 
         //Delete Room
         socket.on("delete room", (data) => {
             socket.leave(data, () => {
-                console.log(getRooms())
+                //console.log(getRooms())
             })
         })
 

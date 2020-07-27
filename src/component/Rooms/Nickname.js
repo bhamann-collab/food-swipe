@@ -21,6 +21,7 @@ const Nickname = () => {
                     <input type="text" onChange={handleChange}/>
                 </label>
             </form> 
+            {!nicknameContext.nicknameState && <p>Please Enter Nickname before continuing</p>}
         </div>
     )
 }

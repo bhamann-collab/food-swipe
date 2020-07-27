@@ -27,7 +27,7 @@ const reducer = (state, action) => {
             return action.name
         case 'generateRoomNumber':
             let randomLetters = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-            socket.emit("room code", randomLetters)
+            socket.emit("room code", { code: randomLetters, nickname: action.nickname})
             return randomLetters;
         case 'removeRoomNumber':
             socket.emit("delete room", action.room);
@@ -67,7 +67,6 @@ const Rooms = () => {
             </HostContext.Provider>
             </NicknameContext.Provider>
             </RoomNameContext.Provider>
-            {isHost} {isJoin} {nickname}
         </div>
     )
 }
