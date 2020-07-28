@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ToggleOnOff from './ToggleOnOff'
+import JoinModal from './JoinModal'
 import { JoinContext, NicknameContext } from './Rooms'
 import { UnmountClosed } from 'react-collapse'
 import { SocketContext, socket } from '../../App'
@@ -7,6 +8,8 @@ import { SocketContext, socket } from '../../App'
 const JoinRoom = () => {
     const [validRoom, setValidRoom] = useState(false)
     const [code, setCode] = useState('')
+    //Showing and hiding modals
+    const [show, setShow] = useState(false)
 
     //Using to send nickname to server
     const nicknameContext = useContext(NicknameContext)
@@ -27,11 +30,16 @@ const JoinRoom = () => {
     }
 
     const handleButton = () => {
+        modalClick()
         socket.emit('send nickname', { nickname: nicknameContext.nicknameState, code: code })
-    
     }
 
-    //continuing
+    const modalClick = () => {
+        console.log(code)
+        socket.emit('remove from room', code)
+        setShow(!show)
+    }
+
     useEffect(() => {
         socketContext.on('room is valid', () => {
             setValidRoom(true)
@@ -40,9 +48,10 @@ const JoinRoom = () => {
             setValidRoom(false)
         })
     }, [])
-    
+
     return (
         <div className="JoinRoom">
+            <JoinModal show={show} modalClick={modalClick} />
             <div className="toggling">
                 <p>Join Room</p>
                 <ToggleOnOff />

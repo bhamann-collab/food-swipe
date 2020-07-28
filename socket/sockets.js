@@ -40,7 +40,14 @@ module.exports.listen = function(app) {
         //Delete Room
         socket.on("delete room", (data) => {
             socket.leave(data, () => {
-                //console.log(getRooms())
+                
+            })
+        })
+
+        //Remove socket from room when pressing the cancel button
+        socket.on("remove from room", (data) => {
+            socket.leave(data, () => {
+                socket.to(data).emit('add participant', getNamesFromRoom(data))
             })
         })
 
