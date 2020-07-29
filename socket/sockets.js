@@ -74,6 +74,10 @@ module.exports.listen = function(app) {
             })
             socket.emit()
         })
+
+        socket.on('prepare to start', room => {
+            io.in(room).emit('start swipe')
+        })
         
         //testing
         socket.emit('test', 'hello client')

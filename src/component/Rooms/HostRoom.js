@@ -3,6 +3,7 @@ import ToggleOnOff from './ToggleOnOff';
 import Participants from './Participants'
 import { HostContext, RoomNameContext } from './Rooms';
 import { UnmountClosed } from 'react-collapse';
+import { useHistory } from 'react-router-dom'
 import { socket } from '../../App'
 
 const HostRoom = () => {
@@ -11,6 +12,20 @@ const HostRoom = () => {
     //Showing the new generated room number
     const roomNameContext = useContext(RoomNameContext)
 
+    //React Router
+    let history = useHistory();
+
+    useEffect(() => {
+        socket.on('start swipe', () => {
+            history.push({
+                pathname: '/pageSwipe'
+            })
+        })
+    }, [])
+
+    const handleButton = e => {
+        socket.emit('prepare to start', roomNameContext.roomNameState)
+    }
     return (
         <div className="HostRoom">
             <div className="toggling">
@@ -24,7 +39,7 @@ const HostRoom = () => {
                     <p className="underline">Participants</p>
                     <Participants />
                 </div>
-                <button>Start Swiping</button>
+                <button onClick={handleButton}>Start Swiping</button>
             </div>
             </UnmountClosed>
         </div>
