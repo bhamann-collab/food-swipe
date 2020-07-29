@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import socketIOClient from "socket.io-client"
 import './css/App.scss';
 
-const ENDPOINT = `http://localhost:5000`
+const ENDPOINT = process.env.REACT_APP_ENDPOINT || `http://localhost:5000`
 
 //useContext() with socket.io
 export const SocketContext = React.createContext()
