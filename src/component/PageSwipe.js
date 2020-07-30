@@ -11,6 +11,7 @@ console.log(API_ENDPOINT)
 
 function PageSwipe() {
 	const [names, setNames] = useState([])
+	const [isTimerOn, setIsTimerOn] = useState(false)
 
 	//Getting names of restaurants internally
 	const namesRef = useRef([])
@@ -56,7 +57,11 @@ function PageSwipe() {
       	} else {
         	console.log('geolocation not avaliable')
       	}
-    	//Geolocation ends Here -------------------
+		//Geolocation ends Here -------------------
+		//Temporary fix to starting timer after it loads
+		setTimeout(function() {
+			setIsTimerOn(true)
+		  }, 1000);
     }
 	function getRestaurants(mongoId) {
 		console.log(`Mongo ID is this:${mongoId}`)
@@ -127,10 +132,10 @@ function PageSwipe() {
 
     return (
         <div className="App">
-			<Timer 
+			{isTimerOn ? <Timer 
 			propTimer={propTimer}
 			transitionToResults={transitionToResults}
-			/>
+			/> : null}
 			<LoadingSpinnerComponent />
             <div className="swipeArea">
 				{Object.keys(names).map((keyName,i) =>
