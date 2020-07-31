@@ -1,6 +1,8 @@
 const { resolve } = require('path');
+getDistanceFromLatLon = require('./getDistanceFromLatLon')
 
-function getRestaurantsData(api_key) {
+function getRestaurantsData(api_key, lat, lng) {
+    console.log(lat, lng)
     var https = require('https');
     let restaurantData = {}
 
@@ -19,10 +21,12 @@ function getRestaurantsData(api_key) {
             resp.on('end', async () => {
                 console.log(data)
                 for(var i in JSON.parse(data).results) {
+                    distance = getDistanceFromLatLon(lat,lng,JSON.parse(data).results[i].geometry.location.lat,JSON.parse(data).results[i].geometry.location.lng)
                     restaurantData[i] = {
                         name: JSON.parse(data).results[i].name,
                         location: JSON.parse(data).results[i].geometry.location,
-                        photo: JSON.parse(data).results[i].photos
+                        photo: JSON.parse(data).results[i].photos,
+                        distance: round(distance, 20, 10)
                     }
                 } 
                 resolve(restaurantData)
@@ -35,5 +39,8 @@ function getRestaurantsData(api_key) {
 
 }
 
+function round(number, increment, offset) {
+    return Math.ceil((number - offset) / increment ) * increment + offset;
+}
 
 module.exports = getRestaurantsData

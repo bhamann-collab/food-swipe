@@ -41,7 +41,7 @@ const SwiperCard = props => {
 			<div className="container">
 				<p>{propValue.cardName}</p>
 				{/* <p>$$</p> */}
-				<p>---m away</p>
+				<p>{propValue.cardDistance}m away</p>
 			</div>
 
 		</TinderCard>

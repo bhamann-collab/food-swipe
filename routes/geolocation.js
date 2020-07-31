@@ -4,13 +4,16 @@ const Restaurants = require('../models/restaurantPlaces')
 
  getRestaurantsData = require('./route_functions/getRestaurantsData')
  shuffleObjects = require('./route_functions/shuffleObjects')
+ getDistanceFromLatLon = require('./route_functions/getDistanceFromLatLon')
 
 //Client sends their geolocation to the server and the server populates the database with restaurant information ready for a session
 router.post('/api/geolocation', async (req, res) => {
     console.log(req.body)
     const api_key = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?rankby=distance&location=${req.body.latitude}%2C${req.body.longitude}&key=${process.env.API_KEY}&type=restaurant`
     //Google API call to get restaurant data
-    let restaurantNames = await getRestaurantsData(api_key)
+    let restaurantNames = await getRestaurantsData(api_key, req.body.latitude, req.body.longitude)
+    console.log(restaurantNames[0])
+    //console.log(getDistanceFromLatLon(req.body.latitude, req.body.longitude, restaurantNames[0].location.lat, restaurantNames[0].location.lng))
 
     //Randomizing the restaurants
     let shuffle = shuffleObjects(restaurantNames)
@@ -29,6 +32,7 @@ router.post('/api/restaurantData/:id', (req, res) => {
         if (err) {
             res.send(err);
         } else {
+            console.log(result)
             res.send(JSON.stringify(result));
         }
     })

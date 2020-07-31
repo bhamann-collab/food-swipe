@@ -130,6 +130,8 @@ function PageSwipe() {
 		})
 	}
 
+	console.log(names)
+
     return (
         <div className="App">
 			{isTimerOn ? <Timer 
@@ -142,6 +144,7 @@ function PageSwipe() {
 					<SwiperCard 
 					key={i} 
 					cardName={names[keyName].name}
+					cardDistance={names[keyName].distance}
 					cardPhoto={names[keyName].photo}
 					propSwiped={propSwiped}
 					/>

@@ -19,6 +19,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '1': {
@@ -33,6 +37,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '2': {
@@ -47,6 +55,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '3': {
@@ -61,6 +73,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '4': {
@@ -75,6 +91,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '5': {
@@ -89,6 +109,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '6': {
@@ -103,6 +127,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '7': {
@@ -117,6 +145,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '8': {
@@ -131,6 +163,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '9': {
@@ -145,6 +181,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '10': {
@@ -159,6 +199,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '11': {
@@ -173,6 +217,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '12': {
@@ -187,6 +235,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '13': {
@@ -201,6 +253,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '14': {
@@ -215,6 +271,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '15': {
@@ -229,6 +289,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '16': {
@@ -243,6 +307,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '17': {
@@ -257,6 +325,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '18': {
@@ -271,6 +343,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     },
     '19': {
@@ -285,6 +361,10 @@ const RestaurantPlacesSchema = new Schema({
         photo: {
             type: Schema.Types.Mixed,
             default: 'no photo'
+        },
+        distance: {
+            type: Number,
+            default: 111
         }
     }
 })
