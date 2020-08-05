@@ -34,3 +34,10 @@ npm start
 ![grab-demo](./demo.gif)
 
 Link to Beta version of website: https://boiling-headland-74814.herokuapp.com/ (Multi-Swipe has not been developed yet)
+
+## Built With
+* [React](https://reactjs.org/) - Front-end framework used
+* [MongoDB](https://www.mongodb.com/) - database for the App
+* [Express](https://expressjs.com/) - Back-end server
+* [Socket.io](https://socket.io/) - For client to client connectivity
+* [react-tinder-card](https://www.npmjs.com/package/react-tinder-card) - To give it a Tinder like feel
