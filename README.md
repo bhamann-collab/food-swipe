@@ -33,7 +33,6 @@ npm start
 
 ![grab-demo](./demo.gif)
 
-Link to Beta version of website: https://boiling-headland-74814.herokuapp.com/ (Multi-Swipe has not been developed yet)
 
 ## Built With
 * [React](https://reactjs.org/) - Front-end framework used
