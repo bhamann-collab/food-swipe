@@ -32,7 +32,7 @@ const PageResults = (props) => {
                 <div className="firstPlaceText">
                     <h1 className="placingName">{location.state.myData[0].meta}</h1>
                 </div>
-                <a href="/">See location in maps</a>
+                <a href={`http://maps.google.com/?q=${location.state.myData[0].meta}`}>See location in maps</a>
             </div>
             <Placing 
             number={2}
