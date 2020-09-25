@@ -1,8 +1,10 @@
 # Food Swiper
 
-Decides for you on where to eat in no time
+Food Swiper is a 'Tinder' like App where people can vote real time on a close restaurant that they would like to go to. The aim of the App is to decide on where to eat quickly. When you've been to the city alone or with friends and you don't know where to eat, it could take a long time deciding as a group and it's very tricky to diversify where you want to eat. 
 
-## Getting Started
+That's where the App Food Swiper comes into place. You and your friends can join a room together on your phones to determine your restaurant of choice depending on your location. The most popular restaurant will be shown to you and your group. 
+
+## Getting Started for development
 
 Website to the beta version can be seen here: https://boiling-headland-74814.herokuapp.com
 
